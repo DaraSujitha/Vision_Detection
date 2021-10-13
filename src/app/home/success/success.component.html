@@ -1,0 +1,67 @@
+<h1 class="main-text">
+    {{palletId}}- Boxes Status
+</h1>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    <div class="carousel-inner">
+        <div class="carousel-item {{ i == selectedIndex ? 'active' : '' }}" *ngFor="let event of sideOne;let i=index">
+            <!-- <h2>{{event.Side}}</h2> -->
+            <div class="row">
+                <div class="col-6 imgCol">
+                    <h2 class="labelBtn mt-2">Box-{{event['Box id']}}</h2>
+                    <!-- <img src="assets/images/Picture2.png" width="250px" height="250px" class="mt-5"> -->
+                    <img [src]="event['Blob URL']" class="slideimage" alt="gaming2" width="350px" height="350px">
+
+                    <h3 class="inspctText mt-5"
+                        [ngStyle]="{'color':(event['Inspect Status']=='Inspected Pass') ? 'green' : 'red' }">
+                        {{event['Inspect Status']}}</h3>
+                </div>
+                <div class="col-6 ml-5">
+                    <div class="">
+                        <h2 class="text-primary">Orientation</h2>
+                        <p>{{event['Orientation Status']}} - {{event['Orientation Bbox']}}</p>
+                    </div>
+
+                    <div class="">
+                        <h2 class="text-primary"> Label </h2>
+                        <ng-container *ngFor="let label of event.label">
+
+                            <p> {{label['Label Detected']}} - {{label['Label Bbox']}} -
+                                {{label['Label id']}}
+                            </p>
+                        </ng-container>
+
+                    </div>
+                    <div class="barcode">
+                        <h2 class="text-primary mr-4">
+                            Barcode
+                        </h2>
+                        <ng-container *ngFor="let bar of event.label">
+                            <ng-container *ngFor="let bars of bar.barcode">
+                                <p> {{bars['Barcode Bbox']}} - {{bars['Barcode Data']}} - {{bars['Barcode Type']}}-
+                                    {{bars['Barcode id']}}
+                                </p>
+                            </ng-container>
+
+                        </ng-container>
+
+                        <!-- <img src="assets/images/Picture7.png" width="150px" height="50px"> -->
+                    </div>
+                    <p [ngStyle]="{'color':(event.inspect=='Inspected OK') ? 'green' : 'red' }"> {{event.bar}}</p>
+                    <div class="">
+                        <h2 class="text-primary">
+                            Damage
+                        </h2>
+                        <p>{{event['Box Status']==='Box' ? 'Undamaged': 'Damaged'}} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" *ngFor="let event of sideOne" href="#myCarousel" data-slide="prev">
+        <span class="carousel-control-prev-icon bg-danger"></span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+        <span class="carousel-control-next-icon bg-danger"></span>
+    </a>
+</div>

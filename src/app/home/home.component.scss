@@ -1,0 +1,79 @@
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .app-name {
+    color: #1a72ae;
+    font-size:16px;
+  }
+  
+  .menu-icon-color {
+    color: #1a72ae;
+  }
+  .list-icon-color{
+      color:#ffffff;
+  }
+  .mat-toolbar {
+    background-color: #ffffff;
+    height: 60px;
+    a:hover {
+      text-decoration: none;
+    }
+  }
+  
+  .menu-open {
+    width: 240px;
+  }
+  
+  .menu-close {
+    width: 55px;
+  }
+  
+  .sidenav-container {
+    background-color: #0087ca;
+  
+    .mat-expansion-panel {
+      background-color: transparent;
+    }
+  
+    .mat-list-base .mat-list-item,
+    .mat-list-base .mat-list-option {
+      height: 38px;
+      color: #95cde9;
+      font-size: 15px;
+      border-radius: 25px;
+    }
+  
+    .mat-expansion-panel-header.mat-expanded {
+      height: 48px;
+    }
+  
+    .sub-menu-icon {
+      width: 12px;
+      height: 12px;
+      font-size: 12px;
+    }
+  
+    .sub-menu-active-icon-bg {
+      background: #004a76;
+      border-radius: 5px;
+      color:#ff7f00;
+    }
+  
+    .active-icon-color {
+      color: #ff7f00;
+    }
+  
+    .active-label-color {
+      color: #ffffff;
+    }
+  
+    .active-link {
+      background-color: #004a76;
+    }
+  }
+  
+  .sidenav-main-container {
+    height: 100%;
+  }
+  

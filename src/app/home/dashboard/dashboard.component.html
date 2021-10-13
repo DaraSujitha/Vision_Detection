@@ -1,0 +1,125 @@
+<h1 class="main-text">
+    Pallet and Box Status Information
+</h1>
+<div class="row">
+    <div class="col-6">
+        <div class="row">
+            <div class="col-6">
+                <div class="paltId ml-4">
+                    <h2>Pallet ID</h2>
+                    <h2>{{palletInfo['Pallet ID']}}</h2>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="paltId">
+                    <h2>Total Boxes</h2>
+                    <h1>{{palletInfo['Total Boxes']}}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row inspect mt-2" style="height:60px">
+            <div class="col-6">
+                <div class="paltId ml-4">
+                    <div class="row" style="display: flex;
+                    flex-direction: row;
+                    justify-content: center;">
+                        <h2 style="color:green" class="">Inspect OK</h2>
+                        <h2 style="color:red" class="ml-3">Inspect Fail</h2>
+                    </div>
+                    <div class="row" style="display: flex;
+                    flex-direction: row;
+                    justify-content: center;">
+                        <h1 class="mr-5">{{palletInfo['Inspect Pass']}}</h1>
+                        <h1 class="ml-5">{{palletInfo['Inspect Fail']}}</h1>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="paltId " style="padding:30px;justify-content: center;align-items: center;">
+                    <h2 [ngStyle]="{'color': (palletText=='Pallet Accepted')? 'green' : 'red' }">{{palletText}}</h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <table style="width:100%;">
+            <tr>
+                <th style="font-size: 20px;">Checks</th>
+                <th style="color:green;">Success</th>
+                <th style="color:red;">Fail</th>
+            </tr>
+
+            <tr>
+                <td>Orientation</td>
+                <td>{{checksInfo['Orientation Detection']['Pass']}}</td>
+                <td>{{checksInfo['Orientation Detection']['Fail']}}</td>
+            </tr>
+            <tr>
+                <td>Label Detect</td>
+                <td>{{checksInfo['Labels Detection']['Pass']}}</td>
+                <td>{{checksInfo['Labels Detection']['Fail']}}</td>
+            </tr>
+            <tr>
+                <td>Barcode Scanned</td>
+                <td>{{checksInfo['Barcode Detection']['Pass']}}</td>
+                <td>{{checksInfo['Barcode Detection']['Fail']}}</td>
+            </tr>
+            <tr>
+                <td>Damage Detection</td>
+                <!-- <td>{{checksInfo['Damage Detection']['Pass']}}</td> -->
+                <td colspan="2" class="text-center" style="font-weight: bold;font-size: 18px;">{{checksInfo['Damage
+                    Detection']['Fail']}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="row palletImgs text-center">
+    <!-- <div class="col-1" style="font-weight:bold;font-size: 18px;">
+        Side 1
+    </div> -->
+    <div class="col-4  mt-5" *ngFor="let imgs of dashboardImages;let i=index">
+
+        <h2 class="text-info  text-center">Box - {{imgs.boxIds}}({{imgs.sides}})</h2>
+        <img [src]="imgs.img" width="80%" height="350px" [routerLink]="['/success',i]">
+    </div>
+</div>
+
+<!-- <div class="row palletImgs">
+    <div class="col-1" style="font-weight:bold;font-size: 18px;">
+        Side 2
+    </div>
+    <div class="col-4 mt-5" *ngFor="let imgs of dashboardImages1">
+        <h2 class="text-info text-center">Box - {{imgs.boxIds}}</h2>
+        <img [src]="imgs.img" width="80%" height="400px" [routerLink]="['/success',i]">
+    </div>
+</div> -->
+
+<!-- <div class="col-4 mt-5">
+        <h2 class="text-info ml-5">Box -2</h2>
+        <img src="assets/images/Picture2.png" width="250px" height="200px" routerLink="/success">
+    </div>
+    <div class="col-4  mt-5">
+        <h2 class="text-info ml-5">Box -3</h2>
+        <img src="assets/images/Picture3.png" width="250px" height="200px" routerLink="/success">
+    </div>
+    <div class="col-4 mt-5">
+        <h2 class="text-info ml-5">Box -4</h2>
+        <img src="assets/images/Picture4.png" width="250px" height="200px" routerLink="/success">
+    </div>
+    <div class="col-4  mt-5">
+        <h2 class="text-info ml-5">Box -5</h2>
+        <span class="material-icons report-icon reportIcon">
+            report
+        </span>
+        <img src="assets/images/Picture5.png" width="250px" height="200px" routerLink="/error">
+    </div>
+    <div class="col-4 mt-5">
+        <h2 class="text-info ml-5">Box -6</h2>
+        <img src="assets/images/Picture6.png" width="250px" height="200px" routerLink="/success">
+    </div>-->
+<!-- <div class="progress-loader" *ngIf="isLoading">
+    <mat-progress-spinner mode="indeterminate" diameter="60"></mat-progress-spinner>
+</div> -->

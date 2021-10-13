@@ -1,0 +1,22 @@
+<div class="row mt-5">
+    <!-- <div class="col-4">
+        <img src="assets/images/pallet.jpg" class="overallImg">
+        <p align=center class="pallettext">Overall Pallet Image</p>
+    </div> -->
+    <div class="col-6 text-center">
+        <img [src]="palletimgs['Side 1']" class="img1">
+        <p align=center class="pallettext">Right Side 1</p>
+
+    </div>
+    <div class="col-6 text-center">
+        <img [src]="palletimgs['Side 2']" class="img2">
+        <p align=center class="pallettext">Left Side 2</p>
+        <div class="mt-5" style="display: flex;justify-content: flex-end;">
+            <button mat-raised-button (click)="palletloading()" color="primary" class="inspectBtn mr-4">Inspect</button>
+            <button mat-raised-button color="accent" class="CancelBtn" routerLink="/pallet">Cancel</button>
+        </div>
+    </div>
+</div>
+<!-- <div class="progress-loader" *ngIf="isLoading">
+    <mat-progress-spinner mode="indeterminate" diameter="60"></mat-progress-spinner>
+</div> -->

@@ -1,0 +1,52 @@
+<h1 class="main-text">
+    Failure Box Status
+</h1>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    <div class="carousel-inner">
+        <div class="carousel-item {{ i == 0 ? 'active' : '' }}" *ngFor="let event of data;let i=index">
+            <div class="row">
+                <div class="col-6 imgCol">
+                    <h2 class="labelBtn mt-2">{{event.box}}</h2>
+                    <!-- <img src="assets/images/Picture2.png" width="250px" height="250px" class="mt-5"> -->
+                    <img [src]=event.img class="slideimage" alt="gaming2" width="250px" height="250px">
+
+                    <h3 class="inspctText mt-5" style="color:red">Barcode Not Detected and Not Scanned</h3>
+                </div>
+                <div class="col-6 ml-5">
+                    <div class="">
+                        <h2 class="text-primary">Orientation</h2>
+                        <p>{{event.orient}}</p>
+                    </div>
+                    <div class="">
+                        <h2 class="text-primary"> Label </h2>
+                        <p> {{event.label}}
+                        </p>
+                    </div>
+                    <div class="barcode">
+                        <h2 class="text-primary mr-4">
+                            Barcode
+                        </h2>
+                        <img src="assets/images/Picture7.png" width="150px" height="50px">
+                    </div>
+                    <br>
+                    <p style="color:red"> {{event.bar}}</p>
+                    <div class="">
+                        <h2 class="text-primary">
+                            Damage
+
+                        </h2>
+                          
+                        <p>{{event.damage}} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" *ngFor="let event of data" href="#myCarousel" data-slide="prev">
+        <span class="carousel-control-prev-icon "></span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+        <span class="carousel-control-next-icon "></span>
+    </a>
+</div>

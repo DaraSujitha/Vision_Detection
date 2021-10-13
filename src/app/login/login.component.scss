@@ -1,0 +1,88 @@
+.loginBg {
+    height:100%;
+    width:auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    background-image:url('../../../src/assets/images/loginbgimg.jpg') ;
+    background-size: 100% ;  
+    background-size: cover;  
+    
+    
+  }
+  .logoImg {
+    width: 293px;
+    height: 140px;
+  }
+  
+  .text-head {
+    color:turquoise;
+    font-family: ui-serif;
+    font-size: 40px;
+    margin-top:20px;
+    margin-bottom: 20px;
+  }
+  .login-card {
+    //   background-color: aqua ;
+    border-radius: 2px;
+    width:400px;
+    height:300px;
+    border: 1px solid #EEF2F7;
+    
+  
+  }
+  .card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+  }
+  .loginCardView {
+    margin-top: 20px;
+    width:100%;
+    text-align: center;
+    font-size: 15px;
+     align-items: center;
+     
+  }
+  
+  .loginBtn {
+      width: 30%;
+      height: 45px;
+      font-size: 20px;
+      margin-top: 20px;
+  background-color: rgb(80, 235, 255);
+  }
+  .inside{
+    width:30rem;
+    height:30rem;
+    // background-color:rgba(255,255,255,0.1);
+    border-radius:1rem;
+    backdrop-filter:blur(2.5rem);
+    border:1px solid rgba(255,255,255,0.5);
+    border-right:1px solid rgba(255,255,255,0.1);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 2.5rem 4.5rem rgba(0,0,0,0.1);
+    opacity: 0.9;
+  }
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: white;
+  }
+  /* Font color */
+  ::ng-deep input.mat-input-element {
+    color: white;
+  }
+
+//   @-webkit-keyframes autofill {
+//     0%,100% {
+//         color: #666;
+//         background: transparent;
+//     }
+// }
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover, 
+// input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 100px none inset !important;
+}

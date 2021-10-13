@@ -1,0 +1,92 @@
+<mat-sidenav-container class="sidenav-main-container">
+    <mat-sidenav #sidenav [mode]="'side'" opened="true" class="sidenav-container"
+        [ngClass]="[isMenuOpen ? 'menu-open' : 'menu-close']">
+        <div class="text-center my-3">
+            <a routerLink="dashboard">
+                <img src="assets/images/cbtlogo_nobg.png" alt="App logo" [ngStyle]="{'width.px': isMenuOpen ? 80 : 55}">
+            </a>
+        </div>
+
+        <mat-nav-list>
+            <mat-accordion displayMode="flat" multi="true">
+                <ng-container *ngFor="let menuItem of menuOptions;let i=index">
+                    <mat-expansion-panel hideToggle class="mat-elevation-z0 ml-2">
+                        <mat-expansion-panel-header class="px-0">
+                            <mat-panel-title>
+
+                                <mat-list-item [routerLink]="menuItem.routerLink"
+                                    [ngClass]="{'active-link': applyActiveLinkBasedOnRoute(menuItem) && isMenuOpen}"
+                                    *ngIf="!menuItem.subMenu; else showSubMenuTitle" (click)="toggleMenu(true)">
+
+                                    <mat-icon mat-list-icon [ngClass]="{'sub-menu-active-icon-bg': applyActiveLinkBasedOnRoute(menuItem) && !isMenuOpen,
+                      'active-icon-color': applyActiveLinkBasedOnRoute(menuItem)}">
+                                        {{menuItem.icon}}</mat-icon>
+
+                                    <div mat-line class="pl-3"
+                                        [ngClass]="{'active-label-color': applyActiveLinkBasedOnRoute(menuItem)}">
+                                        {{menuItem.title}}</div>
+
+                                </mat-list-item>
+
+                                <ng-template #showSubMenuTitle>
+                                    <mat-list-item
+                                        [ngClass]="{'active-link': applyActiveLinkBasedOnRoute(menuItem) && isMenuOpen}"
+                                        (click)="toggleMenu(true)">
+
+                                        <mat-icon mat-list-icon [ngClass]="{'sub-menu-active-icon-bg':applyActiveLinkBasedOnRoute(menuItem) && !isMenuOpen,
+                        'active-icon-color': applyActiveLinkBasedOnRoute(menuItem)}">
+                                            {{menuItem.icon}}</mat-icon>
+
+                                        <div mat-line class="pl-3"
+                                            [ngClass]="{'active-label-color': applyActiveLinkBasedOnRoute(menuItem)}">
+                                            {{menuItem.title}}</div>
+
+                                    </mat-list-item>
+                                </ng-template>
+
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+
+                        <ul *ngIf="menuItem && menuItem.subMenu && menuItem.subMenu.length" class="mb-0 mr-3">
+                            <mat-list-item *ngFor="let subMenu of menuItem.subMenu;let i=index"
+                                [routerLink]="subMenu.routerLink"
+                                [ngClass]="{'active-link': applyActiveLinkBasedOnRoute(subMenu) && isMenuOpen}">
+
+                                <mat-icon mat-list-icon class="sub-menu-icon"
+                                    [ngClass]="{'active-icon-color': applyActiveLinkBasedOnRoute(subMenu)}">
+                                    arrow_right_alt</mat-icon>
+
+                                <div mat-line [ngClass]="{'active-label-color': applyActiveLinkBasedOnRoute(subMenu)}">
+                                    {{subMenu.title}}
+                                </div>
+
+                            </mat-list-item>
+                        </ul>
+
+                    </mat-expansion-panel>
+                </ng-container>
+            </mat-accordion>
+
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content [ngStyle]="{ 'margin-left.px':  isMenuOpen ? 240 : 50}" class="main-bg">
+        <mat-toolbar>
+            <button mat-icon-button (click)="toggleMenu()">
+                <mat-icon class="menu-icon-color">menu_open</mat-icon>
+            </button>
+            <mat-icon style="cursor: pointer;" color="primary" routerLink="/pallet">home</mat-icon>
+            <span class="example-spacer"></span>
+            <div class="d-flex pr-3 align-items-center">
+                <span class="pr-3 username-label">{{username}}</span>
+                <div class="user-avatar">{{profile}}</div>
+                <mat-icon class="material-icons-two-tone pl-2" style="cursor: pointer;" (click)="loggedout()">
+                    logout
+                </mat-icon>
+            </div>
+        </mat-toolbar>
+        <div class="px-4 pt-3">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

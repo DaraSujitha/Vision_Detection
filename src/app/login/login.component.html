@@ -1,0 +1,33 @@
+<div class="loginBg">
+    <div class="inside text-center">
+        <img src="assets/images/cbtlogo_nobg.png" class="logoImg">
+        <h2 class='text-head'>VISION DETECTION</h2>
+
+        <!-- <mat-card class='login-card'> -->
+        <!-- <mat-card-content class="card-content"> -->
+        <form (ngSubmit)=" loginHandler()" [formGroup]="loginForm">
+            <div class="loginCardView">
+                <mat-label style="color: white; margin-right: 10px;">User Name:</mat-label>
+                <mat-form-field appearance="outline">
+
+                    <input type="text" formControlName="username" matInput required style="color:beige;"
+                        autocomplete="off">
+                    <mat-error>UserName is Required</mat-error>
+                </mat-form-field>
+                <br>
+                <mat-label style="color: white; margin-right: 15px;">Password:</mat-label>
+                <mat-form-field appearance="outline">
+
+                    <input type="password" formControlName="password" matInput required style="color:beige">
+                    <mat-error>Password is Required</mat-error>
+                </mat-form-field>
+
+                <div class="loginBtnDiv">
+                    <button mat-raised-button type="submit" color="primary" class="loginBtn">Login</button>
+                </div>
+            </div>
+        </form>
+        <!-- </mat-card-content> -->
+        <!-- </mat-card> -->
+    </div>
+</div>
